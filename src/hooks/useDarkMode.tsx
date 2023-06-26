@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 
 // implement a hook that will allow us to toggle between light and dark mode
 // it will also persist the user's preference in local storage
@@ -7,13 +7,13 @@ import { useState, useEffect } from "react";
 const useDarkMode = () => {
   const [darkMode, setDarkMode] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     darkMode
       ? document.documentElement.classList.add("dark")
       : document.documentElement.classList.remove("dark");
   }, [darkMode]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleDarkMode = () => {
       const isDarkMode = window.matchMedia(
         "(prefers-color-scheme: dark)"
